@@ -1,7 +1,7 @@
 // frontend/src/pages/Sida2.tsx
 import { useEffect, useState } from "react"
 import { getExampleData } from "../api/example_api"
-import { ExamplePost } from "../components/ExamplePost"
+import ExamplePost from "../components/ExamplePost"
 import type { ExampleData } from "../types"
 
 export default function Sida2() {

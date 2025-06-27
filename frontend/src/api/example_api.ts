@@ -16,10 +16,5 @@ export async function getExampleData(): Promise<ExampleData> {
     throw new Error("Nätverksfel: " + response.statusText)
   }
 
-  const data = await response.json()
-
-  return {
-    title: data.title,
-    body: data.body,
-  }
+  return response.json()
 }

@@ -1,3 +1,4 @@
+// frontend/src/components/ExamplePost.tsx
 import type { ExampleData } from "../types"
 
 /*
@@ -12,7 +13,7 @@ export interface ExamplePostProps {
   exampleData: ExampleData
 }
 
-export function ExamplePost({ exampleData }: ExamplePostProps) {
+export default function ExamplePost({ exampleData }: ExamplePostProps) {
   return (
     <div className="example-post">
       <h3>{exampleData.title}</h3>
