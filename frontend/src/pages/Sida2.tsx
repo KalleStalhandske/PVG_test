@@ -1,6 +1,7 @@
 // frontend/src/pages/Sida2.tsx
 import { useEffect, useState } from "react"
 import { getExampleData } from "../api/example_api"
+import { ExamplePost } from "../components/ExamplePost"
 import type { ExampleData } from "../types"
 
 export default function Sida2() {
@@ -66,12 +67,7 @@ export default function Sida2() {
       <div className="card">
         {loading1 && <p>Laddar innehåll...</p>}
         {error1 && <p style={{ color: "red" }}>Fel: {error1}</p>}
-        {data1 && (
-          <div>
-            <h3>{data1.title}</h3>
-            <p>{data1.body}</p>
-          </div>
-        )}
+        {data1 && <ExamplePost exampleData={data1} />}
       </div>
 
       <hr />
@@ -84,12 +80,7 @@ export default function Sida2() {
         <div className="card">
           {loading2 && <p>Laddar mer innehåll...</p>}
           {error2 && <p style={{ color: "red" }}>Fel: {error2}</p>}
-          {data2 && (
-            <div>
-              <h3>{data2.title}</h3>
-              <p>{data2.body}</p>
-            </div>
-          )}
+          {data2 && <ExamplePost exampleData={data2} />}
         </div>
       )}
     </div>
