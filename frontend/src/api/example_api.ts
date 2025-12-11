@@ -18,3 +18,16 @@ export async function getExampleData(): Promise<ExampleData> {
 
   return response.json()
 }
+
+export function buildRequestPayload(userId: number) {
+  return {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      userId,
+      timestamp: new Date().toISOString(),
+    }),
+  }
+}

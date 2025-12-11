@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import { describe, expect, it, vi } from "vitest"
-import { getExampleData } from "./example_api"
+import { getExampleData, buildRequestPayload } from "./example_api"
 
 describe("getExampleData", () => {
   it("hämtar och formaterar data korrekt", async () => {
@@ -11,7 +11,7 @@ describe("getExampleData", () => {
 
     // Mocka fetch, alltså när någon anropar fetch så returner vi själv
     // sådan data som vi vill ha när getExampleData körs på riktigt.
-    global.fetch = vi.fn().mockResolvedValue({
+    globalThis.fetch = vi.fn().mockResolvedValue({
       ok: true,
       json: () =>
         Promise.resolve({
@@ -26,7 +26,7 @@ describe("getExampleData", () => {
 
     // Kontrollera att fetch anropades med rätt URL.
     // Id 51 är resultatet av Math.random() * 100 + 1 (0.5 * 100 + 1 = 51)
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(globalThis.fetch).toHaveBeenCalledWith(
       "https://jsonplaceholder.typicode.com/posts/51"
     )
 
@@ -36,5 +36,13 @@ describe("getExampleData", () => {
       title: "Testtitel",
       body: "Testinnehåll",
     })
+  })
+})
+
+// Snapshot-test för buildRequestPayload
+describe("buildRequestPayload", () => {
+  it("har korrekt struktur för API-anropet", () => {
+    const payload = buildRequestPayload(42)
+    expect(payload).toMatchSnapshot()
   })
 })

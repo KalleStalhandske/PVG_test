@@ -57,13 +57,12 @@ git remote remove frontend
 ## Alternativ: Starta projektet från grunden
 
 Om du inte vill klona exemplet kan du sätta upp projektet själv genom att följa
-stegen nedan.
+stegen nedan. Se till att du har Node.js installerat först enligt ovan.
 
 ### 1. Installera Node.js
 
-Du behöver ha **Node.js** installerat. Ladda ner och installera från:
-
-👉 [https://nodejs.org/](https://nodejs.org/)
+Du behöver ha **Node.js** installerat. Ladda ner och installera från: 👉
+[https://nodejs.org/](https://nodejs.org/)
 
 Kontrollera att det fungerar:
 
@@ -109,11 +108,7 @@ npm install --save-dev \
 
 > Du kan förstås välja till/bort paket efter behov.
 
-### 5. Starta utvecklingsservern
+## Köra och testa frontend
 
-```bash
-npm run dev
-```
-
-Öppna [http://localhost:5173](http://localhost:5173) för att se appen i
-webbläsaren.
+Se README.md inuti `frontend/`-katalogen för instruktioner om hur du kör
+frontend-appen och kör tester.

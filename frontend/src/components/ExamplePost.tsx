@@ -13,7 +13,9 @@ export interface ExamplePostProps {
   exampleData: ExampleData
 }
 
-export default function ExamplePost({ exampleData }: ExamplePostProps) {
+export default function ExamplePost({
+  exampleData,
+}: Readonly<ExamplePostProps>) {
   return (
     <div className="example-post">
       <h3>{exampleData.title}</h3>
