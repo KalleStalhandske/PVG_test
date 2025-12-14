@@ -39,7 +39,7 @@ git merge backend/main --allow-unrelated-histories
 
 Nu finns backend-koden i mappen `backend/` i ert eget repo!
 
-5. **Ta bort den temporära remoten:**
+4. **Ta bort den temporära remoten:**
 
 ```bash
 git remote remove backend
