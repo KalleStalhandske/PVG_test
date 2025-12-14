@@ -30,25 +30,18 @@ git remote add frontend git@coursegit.cs.lth.se:edaf45/samples/nollte_frontend_t
 git fetch frontend
 ```
 
-3. **Checka ut frontend-koden i en ny branch:**
-
-```bash
-git checkout -b frontend-import frontend/main
-```
-
-4. **Gå tillbaka till main-branchen och slå ihop:**
+3. **Slå ihop frontend/main-branchen med er egen main. Använd flaggan --allow-unrelated-histories vid behov:**
 
 ```bash
 git checkout main
-git merge frontend-import
+git merge frontend/main --allow-unrelated-histories
 ```
 
 Nu finns frontend-koden i mappen `frontend/` i ert eget repo!
 
-5. **Ta bort den temporära branchen och remoten:**
+4. **Ta bort den temporära remoten:**
 
 ```bash
-git branch -d frontend-import
 git remote remove frontend
 ```
 
@@ -57,11 +50,11 @@ git remote remove frontend
 ## Alternativ: Starta projektet från grunden
 
 Om du inte vill klona exemplet kan du sätta upp projektet själv genom att följa
-stegen nedan. Se till att du har Node.js installerat först enligt ovan.
+stegen nedan.
 
 ### 1. Installera Node.js
 
-Du behöver ha **Node.js** installerat. Ladda ner och installera från: 👉
+Du behöver ha **Node.js** installerat. Om du inte har det redan så ladda ner och installera från: 👉
 [https://nodejs.org/](https://nodejs.org/)
 
 Kontrollera att det fungerar:
