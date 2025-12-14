@@ -30,24 +30,17 @@ git remote add backend git@coursegit.cs.lth.se:edaf45/samples/nollte_backend_py.
 git fetch backend
 ```
 
-3. **Checka ut backend-koden i en ny branch:**
-
-```bash
-git checkout -b backend-import backend/main
-```
-
-4. **Gå tillbaka till main-branchen och slå ihop:**
+3. **Mergea backend/main-branchen till er egen main. Använd flaggan --allow-unrelated-histories vid behov:**
 
 ```bash
 git checkout main
-git merge backend-import
+git merge backend/main --allow-unrelated-histories
 ```
 
 Nu finns backend-koden i mappen `backend/` i ert eget repo!
 
-5. **Ta bort den temporära branchen och remoten:**
+5. **Ta bort den temporära remoten:**
 
 ```bash
-git branch -d backend-import
 git remote remove backend
 ```
