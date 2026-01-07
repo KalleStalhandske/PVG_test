@@ -62,14 +62,17 @@ och tas emot via API-anrop. De kallas också ofta för *DTO* (Data Transfer Obje
 
 1. Installera beroenden (kräver Python):
 
+ > För att installera Python, ladda ned senaste versionen från [https://www.python.org/downloads/](https://www.python.org/downloads/).
+
 ```bash
 cd backend
-python -m venv .env
-source .env/bin/activate  # Windows: .env\Scripts\activate
-pip install -r requirements.txt
+python -m venv .env       # Skapa en virtuell python environment
+source .env/bin/activate  # Aktivera en virtuella miljön (Mac/Linux)
+                          # Windows, gör istället: .env\Scripts\activate
+pip install -r requirements.txt  # Installera beroenden
 ```
 
-**OBS! Du måste aktivera din virtuella miljö i varje ny terminalsession.**
+Det är generellt rekommenderat att skapa en virtuell python environment för sina projekt. Paket installeras då lokalt i projektet snarare än globalt på din dator. **Observera** att du måste aktivera din virtuella miljö i varje ny terminalsession. Alltså, kör `source .env/bin/activate` (eller Windows-alternativet) igen när du öppnar en ny terminal.
 
 2. Kör API\:t med antingen:
 
@@ -114,11 +117,13 @@ Alembic är ett verktyg för att hantera **databasändringar över tid**
 **Nej, inte i ett så här enkelt projekt.** Just nu räcker det att skapa
 databasen från grunden med `schema.Base.metadata.create_all()`.
 
-Men…
+Särskilt i början kommer ni säkert behöva göra stora förändringar i era
+datamodeller, och ni har ingen *riktig* data som ni måste bevara, så det
+är helt okej att ta bort och skapa om databasen vid förändringar.
 
-### Borde vi använda det?
+### När borde man använda det?
 
-**Ja, om projektet växer**, särskilt om:
+**Om projektet växer**, och då särskilt om:
 
 - Du jobbar i team
 - Du inte vill tappa data när tabeller ändras
@@ -128,6 +133,7 @@ Men…
 
 - Du lägger till ett nytt fält i `Competitor`
 - Du byter namn på en kolumn
-- Du ska deploya till produktion och inte vill börja om med tom databas
+
+Alembic ser då till att databasen uppdateras enligt dina kodändringar.
 
 ---
