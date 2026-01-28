@@ -33,16 +33,16 @@ async def lifespan(app: FastAPI):
         db.add_all(
             [
                 TimeEntry(
-                    competitor_id=comp1.id, timestamp=datetime(2025, 6, 27, 12, 31, 39)
+                    competitor_id=comp1.id, timestamp=datetime(2025, 6, 27, 12, 31, 39), station="start"
                 ),
                 TimeEntry(
-                    competitor_id=comp2.id, timestamp=datetime(2025, 6, 27, 12, 32, 15)
+                    competitor_id=comp2.id, timestamp=datetime(2025, 6, 27, 12, 32, 15), station="start"
                 ),
                 TimeEntry(
-                    competitor_id=comp2.id, timestamp=datetime(2025, 6, 27, 12, 47, 38)
+                    competitor_id=comp2.id, timestamp=datetime(2025, 6, 27, 12, 47, 38), station="finish"
                 ),
                 TimeEntry(
-                    competitor_id=comp1.id, timestamp=datetime(2025, 6, 27, 12, 52, 5)
+                    competitor_id=comp1.id, timestamp=datetime(2025, 6, 27, 12, 52, 5) , station="finish"
                 ),
             ]
         )

@@ -18,5 +18,5 @@ class TimeEntry(Base):
     id = Column(Integer, primary_key=True, index=True)
     competitor_id = Column(Integer, ForeignKey("competitors.id"), index=True)
     timestamp = Column(DateTime, default=datetime.datetime.now(datetime.timezone.utc))
-
+    station = Column(String, default="default_station")
     competitor = relationship("Competitor")
