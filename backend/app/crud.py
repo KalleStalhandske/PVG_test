@@ -3,7 +3,7 @@
 # Kommentar: CRUD står för Create, Read, Update, Delete och innehåller
 # funktioner för att interagera med databasen, som anropas från routrar.
 
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy.orm import Session
 from .models import Competitor, TimeEntry
 
@@ -69,7 +69,7 @@ def record_time_for_start_number(db: Session, start_number: str, station: str) -
     competitor = db.query(Competitor).filter_by(start_number=start_number).first()
     if competitor is None:
         return None  # hanteras i router
-    entry = TimeEntry(competitor_id=competitor.id, station=station, timestamp=datetime.datetime.now(datetime.timezone.utc))
+    entry = TimeEntry(competitor_id=competitor.id, station=station, timestamp=datetime.now(timezone.utc))
     db.add(entry)
     db.commit()
     db.refresh(entry)

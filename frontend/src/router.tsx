@@ -1,8 +1,7 @@
 // src/router.tsx
 import { createBrowserRouter } from "react-router-dom"
 import App from "./App"
-import Sida1 from "./pages/Sida1"
-import Sida2 from "./pages/Sida2"
+import Reg from "./pages/Reg"
 
 /*
   Detta är routerkonfigurationen för vår React-applikation. Den definierar hur
@@ -23,13 +22,9 @@ const router = createBrowserRouter([
         element: <h2>Välkommen till startsidan!</h2>,
       },
       {
-        path: "sida1",
-        element: <Sida1 />,
-      },
-      {
-        path: "sida2",
-        element: <Sida2 />,
-      },
+        path: "reg",
+        element: <Reg/>,
+      }
     ],
   },
 ])
